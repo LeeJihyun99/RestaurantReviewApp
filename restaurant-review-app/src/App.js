@@ -1,16 +1,13 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from "./routes/navigation/navigation.component";
-
-const Home = ()=> (
-  <div>It should show all the components of the Homepage.</div>
-)
+import Home from './routes/home/home.component';
 
 const About = ()=> (
-  <div>About</div>
+  <h2>This is the about page.</h2>
 )
 const Login = ()=> (
-  <div>Login</div>
+  <h2>This is the login page.</h2>
 )
 const App= ()=> {
   return (
