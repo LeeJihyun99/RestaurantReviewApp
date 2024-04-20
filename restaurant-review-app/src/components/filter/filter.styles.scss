@@ -12,14 +12,21 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
 
-    label {
-        font-weight: bold;
-    }
+.filter-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
-    select {
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
+    &:hover {
+        background-color: #ccc;
     }
+}
+
+.selected {
+    background-color: #aaa;
 }
