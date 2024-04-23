@@ -1,0 +1,32 @@
+// filter.styles.scss
+
+.filter-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #ccc;
+    }
+}
+
+.selected {
+    background-color: #aaa;
+}
