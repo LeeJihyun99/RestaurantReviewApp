@@ -10,6 +10,10 @@ const SearchBar = ()=> {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
+   //     fetch(`/api/restaurants?search=${searchTerm}&filter=${filter}`)
+   //     .then(response => response.json())
+   //     .then(data => console.log(data))
+   //     .catch(error => console.error('Error:', error));
         // You can handle the search term here, for example, send it to an API
         console.log(`Searching for: ${searchTerm}`);
     };
