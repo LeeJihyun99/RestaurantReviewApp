@@ -98,3 +98,42 @@ body {
     background-color: #357ae8;
   }
   
+  /* Common button style */
+  .button {
+    width: 200px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  /* Specific styles for each button */
+  .apple-button {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .microsoft-button {
+    background-color: #2b88d8;
+    color: #fff;
+  }
+  
+  .google-button {
+    background-color: #4285f4;
+    color: #fff;
+  }
+  
+  /* Hover styles for each button */
+  .apple-button:hover {
+    background-color: #333;
+  }
+  
+  .microsoft-button:hover {
+    background-color: #2a6eb2;
+  }
+  
+  .google-button:hover {
+    background-color: #357ae8;
+  }
+  

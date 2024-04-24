@@ -30,3 +30,19 @@
 .selected {
     background-color: #aaa;
 }
+
+/* icon */
+.filter-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #2c3e50; 
+    margin: 0 10px; 
+  }
+  
+  .filter-icon:active {
+    transform: scale(0.9);
+  }
+  
+  .filter-icon:hover {
+    color: #e74c3c;
+    transform: scale(1.1);
+  }
