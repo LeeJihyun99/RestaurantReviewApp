@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from "./routes/navigation/navigation.component";
 import Home from './routes/home/home.component';
 import GoogleButton from 'react-google-button'
-import MicrosoftButton from "react-microsoft-login";
-import AppleButton from "react-apple-login";
+// import MicrosoftButton from "react-microsoft-login";
+// import AppleButton from "react-apple-login";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -72,12 +72,7 @@ const Login = ()=> (
     <button className='google-button'>
       <GoogleButton/>
     </button>
-    <button className='apple-button'>
-      <AppleButton/>
-    </button>
-    <button className='microsoft-button'>
-      <MicrosoftButton/>
-    </button>
+
     
   </div>
 )
@@ -100,3 +95,10 @@ export default App;
 
 
 library.add(fab, fas, far)
+
+// <button className='apple-button'>
+// <AppleButton/>
+// </button>
+// <button className='microsoft-button'>
+// <MicrosoftButton/>
+// </button>
