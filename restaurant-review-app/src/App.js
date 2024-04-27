@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from "./routes/navigation/navigation.component";
 import Home from './routes/home/home.component';
+import SignIn from './routes/signin/signin.component';
 import GoogleButton from 'react-google-button'
 // import MicrosoftButton from "react-microsoft-login";
 // import AppleButton from "react-apple-login";
@@ -83,7 +84,7 @@ const App= ()=> {
       <Route path='/' element={<Navigation/>}>
         <Route index element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/login' element={<SignIn/>}/>
       </Route>
     </Routes>
     
