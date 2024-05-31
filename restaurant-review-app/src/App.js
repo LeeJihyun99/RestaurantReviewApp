@@ -4,58 +4,11 @@ import Navigation from "./routes/navigation/navigation.component";
 import Home from './routes/home/home.component';
 import SignIn from './routes/signin/signin.component';
 import GoogleButton from 'react-google-button'
-// import MicrosoftButton from "react-microsoft-login";
-// import AppleButton from "react-apple-login";
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
-/*
-//TODO: Bring it into other files
-
-
-const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSignUpClick = () => {
-    // TODO: Implement sign up logic
-    console.log(`Email: ${email}, Password: ${password}`);
-  };
-
-  return (
-    <div className='signup-container'>
-      <h2>Create Your Account</h2>
-      <input
-        type='email'
-        value={email}
-        onChange={handleEmailChange}
-        placeholder='Enter your email'
-      />
-      <input
-        type='password'
-        value={password}
-        onChange={handlePasswordChange}
-        placeholder='Enter your password'
-      />
-      <button onClick={handleSignUpClick} className='button signup-button'>
-        Create Account
-      </button>
-    </div>
-  );
-};
-
-*/ 
 
 const About = ()=> (
   <div>
@@ -96,10 +49,3 @@ export default App;
 
 
 library.add(fab, fas, far)
-
-// <button className='apple-button'>
-// <AppleButton/>
-// </button>
-// <button className='microsoft-button'>
-// <MicrosoftButton/>
-// </button>
