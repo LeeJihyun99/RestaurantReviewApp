@@ -1,8 +1,8 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore,doc,getDoc,setDoc } from 'firebase/firestore';
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
-
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBK5oE_xJ5pjCVqjVf9vQzeHCFrBxzYY5U",
     authDomain: "restaurant-review-app-ddfe8.firebaseapp.com",
@@ -10,39 +10,49 @@ const firebaseConfig = {
     storageBucket: "restaurant-review-app-ddfe8.appspot.com",
     messagingSenderId: "979749941704",
     appId: "1:979749941704:web:5a0f72076a1757f77690fd",
-  };
+};
 
-  const firebaseApp = initializeApp(firebaseConfig);
-  const provider = new GoogleAuthProvider();
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
 
-  provider.setCustomParameters({
-    prompt: "select_account"
-  });
+// Initialize Firebase Auth and Firestore
+export const auth = getAuth(firebaseApp);
+export const db = getFirestore(firebaseApp);
 
-  export const auth = getAuth(firebaseApp);
-  export const signInWithGooglePopup = ()=> signInWithPopup(auth,provider);
-  
-  export const db = getFirestore();
+// Set up Google Auth Provider
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({
+    prompt: "select_account",
+});
 
-  export const createUserDocumentFromAuth = async (userAuth) => {
+// Export sign-in function
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+// Export sign-out function
+export const signOutUser = () => signOut(auth);
+
+// Export user creation function
+export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
+    if (!userAuth) return;
+
     const userDocRef = doc(db, 'users', userAuth.uid);
     const userSnapShot = await getDoc(userDocRef);
 
-    if(!userSnapShot.exists()){
-
-        //if user data does not exist
-        const {displayName, email} = userAuth;
+    if (!userSnapShot.exists()) {
+        const { displayName, email } = userAuth;
         const createdAt = new Date();
 
-        try{
+        try {
             await setDoc(userDocRef, {
                 displayName,
                 email,
-                createdAt
+                createdAt,
+                ...additionalInformation
             });
-        }catch(error){
-            console.log('error creating the user', error.message);
-        }};
+        } catch (error) {
+            console.log('Error creating the user', error.message);
+        }
+    }
 
-        return userDocRef;
-  }
+    return userDocRef;
+};

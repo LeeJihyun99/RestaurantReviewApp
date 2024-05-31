@@ -1,11 +1,13 @@
-import { useState } from 'react';
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
+import { useState, useEffect } from 'react';
+import { signInWithGooglePopup, createUserDocumentFromAuth, signOutUser, auth } from "../../utils/firebase/firebase.utils";
 import GoogleButton from "react-google-button";
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
+import { onAuthStateChanged } from 'firebase/auth';
 
 const SignIn = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
+    const [user, setUser] = useState(null);
 
     const logGoogleUser = async () => {
         try {
@@ -18,7 +20,24 @@ const SignIn = () => {
         } finally {
             setIsLoading(false);
         }
-    }
+    };
+
+    const handleSignOut = async () => {
+        try {
+            await signOutUser();
+            setUser(null);
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     return (
         <div>
@@ -26,12 +45,14 @@ const SignIn = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {isLoading ? (
                 <p>Loading...</p>
+            ) : user ? (
+                <button onClick={handleSignOut}>Sign Out</button>
             ) : (
                 <GoogleButton onClick={logGoogleUser} />
             )}
             <SignUpForm />
         </div>
     );
-}
+};
 
 export default SignIn;
