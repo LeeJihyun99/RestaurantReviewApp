@@ -3,12 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from "./routes/navigation/navigation.component";
 import Home from './routes/home/home.component';
 import SignIn from './routes/signin/signin.component';
-import GoogleButton from 'react-google-button'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
-
 
 const About = ()=> (
   <div>
@@ -18,7 +16,7 @@ const About = ()=> (
     <p>We appreciate your interest in our platform and look forward to serving you!</p>
   </div>
 )
-
+/*
 const Login = ()=> (
   <div className='login-container'>
     <h2>Login</h2>
@@ -26,12 +24,10 @@ const Login = ()=> (
     <button className='google-button'>
       <GoogleButton/>
     </button>
-
-    
   </div>
 )
-
-const App= ()=> {
+*/
+const App = ()=> {
   return (
     <Routes>
       <Route path='/' element={<Navigation/>}>
@@ -40,6 +36,7 @@ const App= ()=> {
         <Route path='/login' element={<SignIn/>}/>
       </Route>
     </Routes>
+    
     
   );
 }
